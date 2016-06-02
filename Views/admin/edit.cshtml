@@ -1,0 +1,147 @@
+﻿@{
+    ViewBag.Title = "edit";
+}
+
+
+<!DOCTYPE html>
+<html>
+<head>
+
+    <title>The Auto-Swift Website Template | Home :: w3layouts</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <link href='http://fonts.googleapis.com/css?family=Julius+Sans+One' rel='stylesheet' type='text/css'>
+    <link href="../Content/style.css" rel="stylesheet" type="text/css" media="all" />
+    <!--slider-->
+    <link href="~/Content/camera.css" rel="stylesheet" type="text/css" media="all" />
+    <link href="~/Content/table.css" rel="stylesheet" type="text/css" media="all" />
+    <script type='text/javascript' src='~/Content/jquery.min.js'></script>
+    <script type='text/javascript' src='~/Content/jquery.mobile.customized.min.js'></script>
+    <script type='text/javascript' src='~/Content/jquery.easing.1.3.js'></script>
+    <script type='text/javascript' src='~/Content/camera.min.js'></script>
+    <script type='text/javascript' src='../Scripts/table.js'></script>
+
+
+</head>
+<body background="../../Content/night.jpg">
+    <span style="font-size:40px;cursor:pointer; font-colour:white" onclick="openNav()"><h2 align="left">☰ open</h2></span>
+
+    <style>
+        body {
+            font-family: "Lato", sans-serif;
+        }
+
+        .sidenav {
+            height: 100%;
+            width: 0;
+            position: fixed;
+            z-index: 1;
+            top: 0;
+            left: 0;
+            background-color: #111;
+            overflow-x: hidden;
+            transition: 0.5s;
+            padding-top: 60px;
+        }
+
+            .sidenav a {
+                padding: 8px 8px 8px 32px;
+                text-decoration: none;
+                font-size: 25px;
+                color: #818181;
+                display: block;
+                transition: 0.3s;
+            }
+
+                .sidenav a:hover, .offcanvas a:focus {
+                    color: #f1f1f1;
+                }
+
+        .closebtn {
+            position: absolute;
+            top: 0;
+            right: 25px;
+            font-size: 36px !important;
+            margin-left: 50px;
+        }
+
+        media screen and (max-height: 450px) {
+            .sidenav;
+
+        {
+            padding-top: 15px;
+        }
+
+        .sidenav a {
+            font-size: 18px;
+        }
+
+        }
+    </style>
+
+    <body>
+
+        <div id="mySidenav" class="sidenav">
+            <input type='file' onchange="readURL(this);" />
+
+            <img id="blah" src="../../Content/b7.jpg" alt="your image" />
+            <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">×</a>
+            <a href="../../admin/function">HOME</a>
+            <a href="../../admin/add">ADD</a>
+            <a href="../../admin/update">UPDATE</a>
+            <a href="../../admin/delete">DELETE</a>
+            <a href="../../admin/view">VIEW</a>
+            <a href="../../admin/signup">SIGNUP</a>
+        </div>
+
+
+        @*<h2> <p>Click on the element below to open the side navigation menu.</p></h2>
+            <span style="font-size:30px;cursor:pointer" onclick="openNav()"><h2>☰ open</h2></span>*@
+
+        <script>
+            function openNav() {
+                document.getElementById("mySidenav").style.width = "250px";
+            }
+
+            function closeNav() {
+                document.getElementById("mySidenav").style.width = "0";
+            }
+        </script>
+
+
+        @model autoparts.Models.item
+
+
+        <div class="search1">
+            <form action="/admin/EditOK/@Model.I_Id" method="post">
+
+                <h2>Item Name :</h2>
+                <input type="text" name="name" value="@Model.iname" />
+                <br /><br />
+
+                <h2>Color of item :</h2>
+                <input type="text" name="color" value="@Model.icolor" />
+                <br /><br />
+                <h2>Company Name:</h2>
+                <select name="comp_Id" value="@Model.comp_Id">
+                    <option>select company</option>
+                    <option>1</option>
+                    <option>2</option>
+
+                </select><br /><br />
+
+                <h2>Item price:</h2>
+                <input type="text" name="iprice" value="@Model.iprice" />
+                <br /><br />
+                <h2> Quantity:</h2>
+                <input type="text" name="quantity" value="@Model.quantity" />
+                <br /><br />
+                <h2> warranty:</h2>
+                <input type="text" name="warranty" value="@Model.warranty" />
+                <br /><br />
+
+                <input type="submit" value="Edit" style="background-color:blue;color:white" /></br></br>
+            </form>
+        </div>
+    </body>
+</html>

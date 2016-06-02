@@ -1,0 +1,121 @@
+﻿@{
+    ViewBag.Title = "sidebar";
+}
+<!DOCTYPE html>
+<html>
+<head>
+    <link class="jsbin" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1/themes/base/jquery-ui.css" rel="stylesheet" type="text/css" />
+    <script class="jsbin" src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+    <script class="jsbin" src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.0/jquery-ui.min.js"></script>
+    <script type='text/javascript' src='../Scripts/table.js'></script>
+    <meta charset=utf-8 />
+    <title>JS Bin</title>
+    <!--[if IE]>
+      <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <script type="text/javascript">
+        function loadEvents() {
+            var mailString;
+            function updateMailString() {
+                mailString = '?subject=' + encodeURIComponent($('#subject').val())
+                    + '&body=' + encodeURIComponent($('#message').val());
+                $('#mail-link').attr('href', 'mailto:bitf13m512@pucit.edu.pk' + mailString);
+            }
+            $("#subject").focusout(function () { updateMailString(); });
+            $("#message").focusout(function () { updateMailString(); });
+            updateMailString();
+        }
+    </script>
+    <style>
+        article, aside, figure, footer, header, hgroup,
+        menu, nav, section {
+            display: block;
+        }
+    </style>
+</head>
+
+<h2>sidebar</h2>
+<style>
+    body {
+        <input type='file' onchange="readURL(this);" /> <img id="blah" src="#" alt="your image" /> font-family: "Lato", sans-serif;
+    }
+
+    .sidenav {
+        height: 100%;
+        width: 0;
+        position: fixed;
+        z-index: 1;
+        top: 0;
+        left: 0;
+        background-color: #111;
+        overflow-x: hidden;
+        transition: 0.5s;
+        padding-top: 60px;
+    }
+
+        .sidenav a {
+            padding: 8px 8px 8px 32px;
+            text-decoration: none;
+            font-size: 25px;
+            color: #818181;
+            display: block;
+            transition: 0.3s;
+        }
+
+            .sidenav a:hover, .offcanvas a:focus {
+                color: #f1f1f1;
+            }
+
+    .closebtn {
+        position: absolute;
+        top: 0;
+        right: 25px;
+        font-size: 36px !important;
+        margin-left: 50px;
+    }
+
+    media screen and (max-height: 450px) {
+        .sidenav;
+
+    {
+        padding-top: 15px;
+    }
+
+    .sidenav a {
+        font-size: 18px;
+    }
+
+    }
+</style>
+<body>
+    <p>
+        <input id="subject" type="text" placeholder="type your subject here"
+               class="form-control">
+    </p>
+    <p>
+        <input id="message" type="text" placeholder="type your message here"
+               class="form-control">
+    </p>
+    <p><a id="mail-link" class="btn btn-primary">Create email</a></p>
+
+    <div id="mySidenav" class="sidenav">
+        <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">×</a>
+        <a href="../../admin/add">About</a>
+        <a href="#">Services</a>
+        <a href="#">Clients</a>
+        <a href="#">Contact</a>
+    </div>
+
+    <h2>Animated Sidenav Example</h2>
+    <p>Click on the element below to open the side navigation menu.</p>
+    <span style="font-size:30px;cursor:pointer" onclick="openNav()">☰ open</span>
+
+    <script>
+        function openNav() {
+            document.getElementById("mySidenav").style.width = "250px";
+        }
+
+        function closeNav() {
+            document.getElementById("mySidenav").style.width = "0";
+        }
+    </script>
